@@ -553,8 +553,11 @@ void PFParticleMonitoring::analyze(const art::Event &evt)
 
     if (m_disableRealDataCheck || !evt.isRealData())
     {
+      std::cout << "Collecting MC...." << std::endl;
         LArPandoraHelper::CollectMCParticles(evt, m_geantModuleLabel, trueParticleVector);
         LArPandoraHelper::CollectMCParticles(evt, m_geantModuleLabel, truthToParticles, particlesToTruth);
+	
+	std::cout << "Collected MC. " << std::endl;
 
         LArPandoraHelper::BuildMCParticleHitMaps(evt, m_geantModuleLabel, hitVector, trueParticlesToHits, trueHitsToParticles,
             (m_useDaughterMCParticles ? (m_addDaughterMCParticles ? LArPandoraHelper::kAddDaughters : LArPandoraHelper::kUseDaughters) : LArPandoraHelper::kIgnoreDaughters));

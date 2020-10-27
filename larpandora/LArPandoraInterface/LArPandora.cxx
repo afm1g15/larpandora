@@ -63,6 +63,7 @@ LArPandora::LArPandora(fhicl::ParameterSet const &pset) :
     m_enableProduction(pset.get<bool>("EnableProduction", true)),
     m_enableDetectorGaps(pset.get<bool>("EnableLineGaps", true)),
     m_enableMCParticles(pset.get<bool>("EnableMCParticles", false)),
+    m_disableRealDataCheck(pset.get<bool>("DisableRealDataCheck", false)),
     m_lineGapsCreated(false)
 {
     m_inputSettings.m_useHitWidths = pset.get<bool>("UseHitWidths", true);
